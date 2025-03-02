@@ -14,13 +14,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppDatabaseModule {
+    @Singleton
+    @Provides
+    fun providesAppDatabase(@ApplicationContext appContext: Context) = Room.databaseBuilder(
+        appContext, AppDatabase::class.java, "composemovies"
+    ).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
     fun providesFavoriteMoviesDao(appDatabase: AppDatabase): FavoriteMovieEntityDao = appDatabase.favoriteMoviesDao()
-
-    fun providesAppDatabase(@ApplicationContext appContext: Context) = Room.databaseBuilder(
-        appContext, AppDatabase::class.java, "composemovies"
-    )
-
 }

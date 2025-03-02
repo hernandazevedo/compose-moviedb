@@ -5,6 +5,7 @@ import com.hernandazevedo.composemovies.data.local.IFavoriteMoviesLocalDataSourc
 import com.hernandazevedo.composemovies.data.remote.IMoviesService
 import com.hernandazevedo.composemovies.data.remote.MovieService
 import com.hernandazevedo.composemovies.data.remote.IMoviesRemoteDataSource
+import com.hernandazevedo.composemovies.data.remote.MoviesRemoteDataSource
 import com.hernandazevedo.composemovies.data.remote.MoviesServiceImpl
 import com.hernandazevedo.composemovies.data.repository.MoviesRepository
 import com.hernandazevedo.composemovies.domain.IMoviesRepository
@@ -30,7 +31,7 @@ abstract class MoviesModule {
     @Singleton
     @Binds
     abstract fun provideRemoteDataSource(
-        remoteDataSource: IMoviesRemoteDataSource
+        remoteDataSource: MoviesRemoteDataSource
     ): IMoviesRemoteDataSource
 
     @Singleton

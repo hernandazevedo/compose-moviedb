@@ -127,6 +127,8 @@ dependencies {
     val lottieVersion = "6.0.0"
     implementation("com.airbnb.android:lottie-compose:$lottieVersion")
 
+    implementation("com.github.a914-gowtham:compose-ratingbar:1.3.4")
+
     // OkHttp
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.11.0"))
     implementation("com.squareup.okhttp3:okhttp")

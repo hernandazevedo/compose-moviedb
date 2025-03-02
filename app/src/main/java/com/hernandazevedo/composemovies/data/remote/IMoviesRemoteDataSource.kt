@@ -4,51 +4,54 @@ import com.hernandazevedo.composemovies.core.callNetworkFlow
 import com.hernandazevedo.composemovies.domain.MoviesDetailResponse
 import com.hernandazevedo.composemovies.domain.PopularsMovieResponse
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 interface IMoviesRemoteDataSource {
-    suspend fun getPopularMovies(apiKey: String,
-                                 page: Int,
-                                 language: String): Flow<PopularsMovieResponse>
+    suspend fun getPopularMovies(
+        apiKey: String,
+        page: Int,
+        language: String
+    ): Flow<PopularsMovieResponse>
 
     suspend fun getMovieDetail(
         apiKey: String,
         id: String,
         language: String,
 
-    ): Flow<MoviesDetailResponse>
+        ): Flow<MoviesDetailResponse>
 
     suspend fun searchMovie(
-        api_key: String,
+        apiKey: String,
         query: String,
         language: String,
     ): Flow<PopularsMovieResponse>
 }
 
 
-class IMoviesRemoteDataSourceImpl(private val movieService: IMoviesService) :
+class MoviesRemoteDataSource @Inject constructor(private val movieService: IMoviesService) :
     IMoviesRemoteDataSource {
     override suspend fun getPopularMovies(
         apiKey: String,
         page: Int,
         language: String
     ): Flow<PopularsMovieResponse> = callNetworkFlow {
-        movieService.getPopularMovies(apiKey,language,page)
+        movieService.getPopularMovies(apiKey, language, page)
     }
 
     override suspend fun getMovieDetail(
         apiKey: String,
         id: String,
         language: String
-    ): Flow<MoviesDetailResponse> {
-        TODO("Not yet implemented")
+    ): Flow<MoviesDetailResponse> = callNetworkFlow {
+        movieService.getMovieDetail(apiKey, language, id)
     }
 
     override suspend fun searchMovie(
-        api_key: String,
+        apiKey: String,
         query: String,
         language: String
-    ): Flow<PopularsMovieResponse> {
-        TODO("Not yet implemented")
+    ): Flow<PopularsMovieResponse> = callNetworkFlow {
+        movieService.searchMovie(query, apiKey, language)
     }
 
 }

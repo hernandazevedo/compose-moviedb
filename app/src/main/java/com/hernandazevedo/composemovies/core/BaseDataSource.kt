@@ -11,7 +11,6 @@ abstract class BaseDataSource {
     //for testing force error
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): T {
         try {
-            Timber.e("getResult for datasource")
            val response = call()
             if (response.isSuccessful) {
                 val body = response.body()
@@ -25,6 +24,7 @@ abstract class BaseDataSource {
             }
             throw Exception(" not e ${response.code()} ${response.body()}")
         }catch (e:Throwable){
+            Timber.e(e.message?:"")
             error(e.message?:"")
         }
     }

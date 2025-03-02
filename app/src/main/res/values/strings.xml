@@ -8,4 +8,5 @@
     <string name="empty_screen_description_error_something_went_wrong">Something went wrong, please try again</string>
     <string name="screen_empty_title_favorites">You have no favorites</string>
     <string name="screen_empty_description_favorites">Add movies to your favorites to see them here</string>
+    <string name="release_date">Release date</string>
 </resources>
