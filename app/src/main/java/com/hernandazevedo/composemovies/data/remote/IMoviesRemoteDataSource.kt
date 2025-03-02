@@ -5,7 +5,7 @@ import com.hernandazevedo.composemovies.domain.MoviesDetailResponse
 import com.hernandazevedo.composemovies.domain.PopularsMovieResponse
 import kotlinx.coroutines.flow.Flow
 
-interface MoviesRemoteDataSource {
+interface IMoviesRemoteDataSource {
     suspend fun getPopularMovies(apiKey: String,
                                  page: Int,
                                  language: String): Flow<PopularsMovieResponse>
@@ -25,8 +25,8 @@ interface MoviesRemoteDataSource {
 }
 
 
-class MoviesRemoteDataSourceImpl(private val movieService: IMoviesService) :
-    MoviesRemoteDataSource {
+class IMoviesRemoteDataSourceImpl(private val movieService: IMoviesService) :
+    IMoviesRemoteDataSource {
     override suspend fun getPopularMovies(
         apiKey: String,
         page: Int,

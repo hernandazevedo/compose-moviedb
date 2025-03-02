@@ -3,7 +3,7 @@ package com.hernandazevedo.composemovies.di
 import android.content.Context
 import androidx.room.Room
 import com.hernandazevedo.composemovies.data.database.AppDatabase
-import com.hernandazevedo.composemovies.data.database.dao.FavoriteMovieDao
+import com.hernandazevedo.composemovies.data.database.dao.FavoriteMovieEntityDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,7 @@ object AppDatabaseModule {
 
     @Singleton
     @Provides
-    fun providesFavoriteMoviesDao(appDatabase: AppDatabase): FavoriteMovieDao = appDatabase.favoriteMoviesDao()
+    fun providesFavoriteMoviesDao(appDatabase: AppDatabase): FavoriteMovieEntityDao = appDatabase.favoriteMoviesDao()
 
     fun providesAppDatabase(@ApplicationContext appContext: Context) = Room.databaseBuilder(
         appContext, AppDatabase::class.java, "composemovies"
