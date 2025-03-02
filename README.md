@@ -1,4 +1,5 @@
 # Movies App
+![app](https://github.com/user-attachments/assets/ec47b2a4-03b5-4372-986f-f9681c974c06)
 
 The Movies App is a sample Android project that enables users to explore and discover movies. It is designed with Clean Architecture principles, adheres to the MVVM (Model-View-ViewModel) pattern, and takes advantage of Jetpack Compose for its user interface. The app employs Room for local data storage and leverages Coroutines and Flow for managing asynchronous tasks.
 
