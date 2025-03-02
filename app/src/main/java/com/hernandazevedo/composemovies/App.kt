@@ -7,13 +7,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hernandazevedo.composemovies.di.AppModule
 import com.hernandazevedo.composemovies.ui.theme.ComposeMoviesTheme
 
 @Composable
 fun App(darkTheme: Boolean,
-        dynamicColor: Boolean,
-        appModule: AppModule) {
+        dynamicColor: Boolean) {
     ComposeMoviesTheme(
         darkTheme = darkTheme,
         dynamicColor = dynamicColor
